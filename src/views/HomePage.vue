@@ -109,7 +109,7 @@ import {
 } from 'ionicons/icons';
 
 import { loadReminders, saveReminders } from '../services/storage.js';
-import { checkPermission, requestPermission, cancelNotification, createNotificationChannel } from '../services/notifications.js';
+import { checkPermission, requestPermission, cancelNotification, scheduleNotification, createNotificationChannel } from '../services/notifications.js';
 import { openAppSettings } from '../services/settings.js';
 
 const router = useRouter();
@@ -176,6 +176,13 @@ function isOverdue(reminder) {
 async function toggleDone(reminder) {
   reminder.done = !reminder.done;
   await saveReminders(reminders.value);
+
+  if (reminder.done) {
+    await cancelNotification(reminder.id);
+  }
+  else if (reminder.date){
+    await scheduleNotification(reminder);
+  }
 }
 
 /**
@@ -183,6 +190,7 @@ async function toggleDone(reminder) {
  */
 function toggleShowDone() {
   showDone.value = !showDone.value;
+
 }
 
 /**
