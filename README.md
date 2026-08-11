@@ -9,17 +9,6 @@ Fallstudie im Modul **Hybride App-Entwicklung** (WWI23-6), Aufgabenstellung *Eri
 
 ---
 
-## Screenshots
-
-| Listenansicht | Bearbeiten und Löschen | Benachrichtigung | Berechtigungsanfrage |
-|---|---|---|---|
-| <img src="docs/screenshots/liste.png" width="200"> | <img src="docs/screenshots/bearbeiten-loeschen.png" width="200"> | <img src="docs/screenshots/benachrichtigung.png" width="200"> | <img src="docs/screenshots/berechtigung.png" width="200"> |
-| Sortiert nach Fälligkeit, erledigte Einträge durchgestrichen, überfällige rot markiert | Wischgeste nach links legt die Aktionen frei | Auslösung durch das Betriebssystem zum geplanten Zeitpunkt | Beim ersten Start, sobald ein Datum gesetzt wird |
-
-Die Aufnahmen zeigen die App im Dunkelmodus, den sie automatisch aus der Systemeinstellung übernimmt.
-
----
-
 ## Funktionsumfang
 
 **Kernfunktionen**
