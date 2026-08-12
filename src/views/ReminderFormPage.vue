@@ -197,30 +197,6 @@ function validate() {
     isValid = false;
   }
 
-  // Datum darf nicht in der Vergangenheit liegen
-  if (hasDate.value && date.value) {
-    const selectedDate = extractDate(date.value);
-    if (selectedDate) {
-      if (hasTime.value && time.value) {
-        // Mit Uhrzeit: exakter Zeitpunkt-Vergleich
-        const timeStr = extractTime(time.value);
-        const dateTime = new Date(`${selectedDate}T${timeStr}`);
-        if (dateTime <= new Date()) {
-          dateError.value = 'Der Zeitpunkt liegt in der Vergangenheit. Bitte wähle einen zukünftigen Zeitpunkt.';
-          isValid = false;
-        }
-      } else {
-        // Ohne Uhrzeit: Nur Tages-Vergleich (Datum darf nicht vor heute liegen)
-        const today = new Date();
-        const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-        if (selectedDate < todayStr) {
-          dateError.value = 'Das Datum liegt in der Vergangenheit. Bitte wähle ein heutiges oder zukünftiges Datum.';
-          isValid = false;
-        }
-      }
-    }
-  }
-
   return isValid;
 }
 
